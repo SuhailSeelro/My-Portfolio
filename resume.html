@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suhail Ahmed — Resume</title>
+<link rel="icon" href="data:,">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#171A21; --dim:#5B5F6B; --line:#DCDBD3; --gold:#B67A1E; --paper:#FBFAF6;
+    --font-display:"Space Grotesk",sans-serif; --font-body:"Inter",sans-serif; --font-mono:"JetBrains Mono",monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #2A2D34; color: var(--ink);
+    font-family: var(--font-body); display: flex; flex-direction: column; align-items: center;
+    padding: 28px 16px 60px;
+  }
+  .toolbar {
+    width: 100%; max-width: 760px; display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 18px; font-family: var(--font-mono); font-size: 13px; color: #C7C9D1;
+  }
+  .toolbar a { color: #C7C9D1; text-decoration: none; }
+  .toolbar a:hover { color: #fff; }
+  #print-btn {
+    background: var(--gold); color: #171A21; border: none; padding: 10px 18px;
+    font-family: var(--font-mono); font-size: 13px; font-weight: 700; cursor: pointer; border-radius: 3px;
+  }
+  #print-btn:hover { background: #c98a28; }
+
+  .page {
+    width: 100%; max-width: 760px; background: var(--paper); color: var(--ink);
+    padding: 52px 56px; box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+
+  .r-header { display:flex; justify-content:space-between; align-items:flex-start; gap:20px; border-bottom: 2px solid var(--ink); padding-bottom: 18px; margin-bottom: 22px;}
+  .r-header h1 { font-family: var(--font-display); font-size: 30px; margin: 0 0 4px; letter-spacing: -0.01em;}
+  .r-header .role { font-family: var(--font-mono); font-size: 13px; color: var(--gold); }
+  .r-contact { text-align: right; font-size: 12.5px; color: var(--dim); line-height: 1.7; font-family: var(--font-mono); }
+  .r-contact a { color: var(--dim); text-decoration: none; }
+
+  .r-section { margin-bottom: 22px; }
+  .r-section h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--gold);
+    margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line);
+  }
+
+  .r-summary { font-size: 14px; color: #34363D; margin: 0; max-width: 66ch; }
+
+  .r-edu-row { display:flex; justify-content: space-between; gap: 12px; font-size: 14px; margin-bottom: 4px;}
+  .r-edu-row .school { font-weight: 600; }
+  .r-edu-row .years { font-family: var(--font-mono); font-size: 12px; color: var(--dim); white-space: nowrap; }
+  .r-edu-note { font-size: 13px; color: var(--dim); }
+
+  .r-expertise { display:flex; gap: 26px; flex-wrap: wrap; }
+  .r-expertise div { flex: 1; min-width: 220px; }
+  .r-expertise h3 { font-size: 13.5px; margin: 0 0 4px; }
+  .r-expertise p { font-size: 12.5px; color: var(--dim); margin: 0; }
+
+  .r-skill-group { margin-bottom: 10px; font-size: 13px; }
+  .r-skill-group b { font-family: var(--font-mono); font-weight: 600; font-size: 12px; color: var(--ink); }
+  .r-skill-group span { color: var(--dim); }
+
+  .r-project { margin-bottom: 12px; }
+  .r-project-top { display:flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+  .r-project-top h3 { font-size: 14px; margin: 0; }
+  .r-project-top .platform { font-family: var(--font-mono); font-size: 11px; color: var(--gold); white-space: nowrap; }
+  .r-project p { font-size: 12.5px; color: var(--dim); margin: 3px 0 0; }
+  .r-project .link { font-family: var(--font-mono); font-size: 11px; color: var(--dim); }
+
+  .r-cert-row { display:flex; justify-content: space-between; gap: 12px; font-size: 13px; margin-bottom: 6px; }
+  .r-cert-row .issuer { font-family: var(--font-mono); font-size: 11.5px; color: var(--dim); white-space: nowrap; }
+
+  .r-footer-note {
+    margin-top: 30px; padding-top: 14px; border-top: 1px dashed var(--line);
+    font-family: var(--font-mono); font-size: 10.5px; color: var(--dim);
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .toolbar { display: none; }
+    .page { box-shadow: none; padding: 24px 6px; max-width: 100%; }
+    @page { margin: 16mm 14mm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a href="index.html">← Back to portfolio</a>
+  <button id="print-btn">Download / Print PDF</button>
+</div>
+
+<article class="page" id="resume-page"></article>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  const d = SITE_DATA;
+  const c = d.contact;
+
+  const html = `
+    <div class="r-header">
+      <div>
+        <h1>${d.name}</h1>
+        <div class="role">${d.role}</div>
+      </div>
+      <div class="r-contact">
+        ${c.phone}<br>
+        ${c.whatsapp} (WhatsApp)<br>
+        <a href="mailto:${c.emailPersonal}">${c.emailPersonal}</a><br>
+        <a href="${c.linkedin}">linkedin.com/in/suhail-ahmed</a><br>
+        <a href="${c.github}">github.com/SuhailSeelro</a>
+      </div>
+    </div>
+
+    <div class="r-section">
+      <h2>Summary</h2>
+      <p class="r-summary">${d.tagline}</p>
+    </div>
+
+    <div class="r-section">
+      <h2>Education</h2>
+      ${d.education.map(e => `
+        <div class="r-edu-row">
+          <span class="school">${e.degree} — ${e.school}</span>
+          <span class="years">${e.years}</span>
+        </div>
+        <div class="r-edu-note">${e.note}</div>
+      `).join("")}
+    </div>
+
+    <div class="r-section">
+      <h2>Areas of Expertise</h2>
+      <div class="r-expertise">
+        ${d.expertise.map(e => `<div><h3>${e.title}</h3><p>${e.description}</p></div>`).join("")}
+      </div>
+    </div>
+
+    <div class="r-section">
+      <h2>Skills</h2>
+      ${d.skillGroups.map(g => `
+        <div class="r-skill-group"><b>${g.group}:</b> <span>${g.skills.join(", ")}</span></div>
+      `).join("")}
+    </div>
+
+    <div class="r-section">
+      <h2>Projects</h2>
+      ${d.projects.map(p => `
+        <div class="r-project">
+          <div class="r-project-top">
+            <h3>${p.name}</h3>
+            <span class="platform">${p.platform}</span>
+          </div>
+          <p>${p.description}</p>
+          <div class="link">${p.repo.replace('https://', '')}</div>
+        </div>
+      `).join("")}
+    </div>
+
+    <div class="r-section">
+      <h2>Certifications</h2>
+      ${d.certificates.map(c => `
+        <div class="r-cert-row">
+          <span>${c.title}</span>
+          <span class="issuer">${c.issuer}</span>
+        </div>
+      `).join("")}
+    </div>
+
+    <div class="r-footer-note">
+      This resume is generated automatically from the same data that powers suhailahmed.dev — new skills,
+      projects, or certificates added there appear here without any manual editing.
+    </div>
+  `;
+
+  document.getElementById("resume-page").innerHTML = html;
+  document.title = `${d.name} — Resume`;
+
+  document.getElementById("print-btn").addEventListener("click", () => window.print());
+})();
+</script>
+</body>
+</html>

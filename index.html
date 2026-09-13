@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suhail Ahmed — Web & Game Developer</title>
+<meta name="description" content="Portfolio of Suhail Ahmed — Web developer and Unity 2D/3D game developer for mobile and PC.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-bg" aria-hidden="true"></div>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="nav-mark">SUHAIL<span>.AHMED</span></a>
+    <ul class="nav-links">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="resume.html" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="hero-kicker">portfolio <span class="path-sep">/</span> <span class="path-current">suhail-ahmed</span></div>
+        <h1>Building for the <em>browser</em><br>and the <em>build target.</em></h1>
+        <p class="lede" id="hero-lede">Loading…</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View projects</a>
+          <a class="btn btn-outline" href="resume.html" target="_blank" rel="noopener">Download resume</a>
+        </div>
+        <div class="hero-stats" id="hero-stats"></div>
+      </div>
+
+      <div>
+        <div class="viewport">
+          <img src="assets/profile.jpg" alt="Portrait of Suhail Ahmed">
+          <div class="scanline" aria-hidden="true"></div>
+          <span class="viewport-corner vc-tl"></span>
+          <span class="viewport-corner vc-tr"></span>
+          <span class="viewport-corner vc-bl"></span>
+          <span class="viewport-corner vc-br"></span>
+          <div class="viewport-tag">
+            <span><span class="dot"></span>available for work</span>
+            <span id="hero-location"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section id="expertise">
+    <div class="wrap">
+      <div class="eyebrow">Expertise</div>
+      <h2 class="section-title">Two disciplines, one build pipeline.</h2>
+      <p class="section-sub">Comfortable moving between a web stack and a game engine — the same problem-solving, applied to two very different runtimes.</p>
+      <div class="expertise-grid" id="expertise-grid"></div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="eyebrow">Skills</div>
+      <h2 class="section-title">Toolkit</h2>
+      <p class="section-sub">Kept current as a living list — this same set of skills is what populates the resume below.</p>
+      <div class="skills-groups" id="skills-groups"></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="eyebrow">Projects</div>
+      <h2 class="section-title">Selected builds</h2>
+      <p class="section-sub">A mix of web applications and Unity games — each one linked through to its source on GitHub.</p>
+      <div class="project-list" id="project-list"></div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="wrap">
+      <div class="eyebrow">Certificates</div>
+      <h2 class="section-title">Coursework & credentials</h2>
+      <p class="section-sub">Click any certificate to preview it, or download the original PDF.</p>
+      <div class="cert-shelf" id="cert-shelf"></div>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="wrap">
+      <div class="resume-banner">
+        <div>
+          <h3>Want it on paper?</h3>
+          <p>The resume is generated from the exact same data as this page — skills, projects, and education stay in sync automatically.</p>
+          <span class="resume-note">// updates whenever a new skill is added</span>
+        </div>
+        <a class="btn btn-primary" href="resume.html" target="_blank" rel="noopener">Open resume ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="eyebrow">Contact</div>
+      <h2 class="section-title">Let's talk about a project.</h2>
+      <p class="section-sub">Reach out on whichever channel is easiest — all of them go straight to me.</p>
+      <div class="contact-grid" id="contact-grid"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span id="footer-name"></span>
+    <span>Built with a single data source — index, resume, and every future skill stay in sync.</span>
+  </div>
+</footer>
+
+<!-- Certificate lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-foot">
+      <span id="lightbox-title"></span>
+      <button class="lightbox-close" id="lightbox-close">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
